@@ -1,4 +1,5 @@
 import '../../assets/css/auth.css'
+import './register.css'
 
 import cover from '../../assets/img/cover-register.png'
 import logo from '../../assets/img/logo.png'
@@ -53,7 +54,7 @@ const Register = () => {
             paddingRight: '20px'
           }}
         >
-          <img src={cover} style={{ width: '100%' }} alt="Logo" />
+          <img src={cover} alt="Logo" style={{ width: '100%' }} />
         </Stack>
       </Grid>
       <Grid item xs={12} sm={5}>
@@ -67,8 +68,8 @@ const Register = () => {
             paddingRight: '20px'
           }}
         >
-          <img src={logo} style={{ width: '30%' }} alt="Logo" />
-          <h2 className="loginTitle">Crie sua conta</h2>
+          <img className="logoPrincipal" src={logo} alt="Logo" />
+          <h2 className="RegisterTitle">Crie sua conta</h2>
           <Grid container>
             <Grid item xs={12}>
               <TextField
@@ -137,6 +138,7 @@ const Register = () => {
                 display: 'block',
                 width: '100%',
                 marginTop: '5px',
+                marginBottom: '10px',
                 color: '#121F4E'
               }}
               to="/login"

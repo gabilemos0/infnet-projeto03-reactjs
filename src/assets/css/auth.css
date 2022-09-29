@@ -1,5 +1,18 @@
 @media screen and (max-width: 599px) {
-  .leftSide {
+  .logoPrincipal {
     display: none;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .logoPrincipal {
+    width: 20%;
+  }
+}
+
+
+@media screen and (min-width: 1000px) {
+  .logoPrincipal {
+    width: 15%;
   }
 }

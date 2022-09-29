@@ -1,5 +1,9 @@
+import { products } from './products'
+
 const Catalog = () => {
-  return <h1>Catálogo</h1>
+  return products.map(product => {
+    return <h1>Catálogo modificado</h1>
+  })
 }
 
-export default Catalog;
+export default Catalog

@@ -6,7 +6,6 @@ import logo from '../../assets/img/logo.png'
 
 import {
   Grid,
-  Box,
   TextField,
   Button,
   Stack,
@@ -39,7 +38,6 @@ const Login = () => {
         className="leftSide"
         item
         sx={{
-          padding: '10px',
           boxSizing: 'border-box'
         }}
         xs={12}
@@ -55,7 +53,7 @@ const Login = () => {
             paddingRight: '20px'
           }}
         >
-          <img src={cover} style={{ width: '100%' }} alt="Logo" />
+          <img src={cover} alt="Logo" style={{ width: '100%' }} />
         </Stack>
       </Grid>
       <Grid item xs={12} sm={5}>
@@ -69,7 +67,7 @@ const Login = () => {
             paddingRight: '20px'
           }}
         >
-          <img src={logo} style={{ width: '30%' }} alt="Logo" />
+          <img className="logoPrincipal" src={logo} alt="Logo" />
           <h2 className="loginTitle">Entre com seu usuário</h2>
           <Grid container>
             <Grid item xs={12}>
@@ -121,6 +119,7 @@ const Login = () => {
                 display: 'block',
                 width: '100%',
                 marginTop: '5px',
+                marginBottom: '10px',
                 color: '#121F4E'
               }}
               to="/register"
