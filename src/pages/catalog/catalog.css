@@ -11,8 +11,6 @@
 }
 
 .productPrice {
-  text-decoration: line-through;
-  color: #FA63B5;
   font-size: 15px;
   font-weight: bold;
 }
@@ -20,6 +18,8 @@
 .productPromoPrice {
   margin-left: 5px;
   font-size: 15px;
+  font-weight: bold;
+  color: #121F4E;
 }
 
 .categoryLabel {
