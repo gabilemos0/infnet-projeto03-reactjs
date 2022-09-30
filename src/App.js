@@ -69,7 +69,7 @@ function App() {
   )
 }
 
-const RouteApp = () => {
+function RouterApp() {
   return (
     <Router>
       <App />
@@ -77,4 +77,4 @@ const RouteApp = () => {
   )
 }
 
-export default RouteApp
+export default RouterApp

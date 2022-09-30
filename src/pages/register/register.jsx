@@ -1,4 +1,3 @@
-import '../../assets/css/auth.css'
 import './register.css'
 
 import cover from '../../assets/img/cover-register.png'
@@ -123,14 +122,16 @@ const Register = () => {
               />
             </Grid>
             <Grid item xs={12}>
-              <Button
-                fullWidth
-                variant="contained"
-                color="secondary"
-                endIcon={<LoginIcon />}
-              >
-                Registrar
-              </Button>
+              <Link to="/catalog">
+                <Button
+                  fullWidth
+                  variant="contained"
+                  color="secondary"
+                  endIcon={<LoginIcon />}
+                >
+                  Registrar
+                </Button>
+              </Link>
             </Grid>
             <Link
               style={{

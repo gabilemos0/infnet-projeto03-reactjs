@@ -1,5 +1,4 @@
 import './login.css'
-import '../../assets/css/auth.css'
 
 import cover from '../../assets/img/cover-login.png'
 import logo from '../../assets/img/logo.png'
@@ -104,14 +103,16 @@ const Login = () => {
               </FormControl>
             </Grid>
             <Grid item xs={12}>
-              <Button
-                fullWidth
-                variant="contained"
-                color="secondary"
-                endIcon={<LoginIcon />}
-              >
-                Entrar
-              </Button>
+              <Link to="/catalog">
+                <Button
+                  fullWidth
+                  variant="contained"
+                  color="secondary"
+                  endIcon={<LoginIcon />}
+                >
+                  Entrar
+                </Button>
+              </Link>
             </Grid>
             <Link
               style={{
