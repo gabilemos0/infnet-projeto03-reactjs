@@ -1,0 +1,44 @@
+.productImage {
+  height: 135px;
+  width: 100px;
+  border-radius: 20px;
+}
+
+.productTitleCart {
+  margin: 0 20px;
+  color: #5F093D;
+  text-align: start;
+  font-size: 18px;
+}
+
+.productDescriptionCart {
+  margin: 0 20px;
+  color: #333;
+  font-size: 12px;
+  text-align: justify;
+}
+
+.productInfosQuantityInputCart {
+  width: 65px;
+  margin-bottom: 10px;
+}
+
+.paymentList {
+  list-style-type: none;
+  padding-left: 0;
+  text-transform: uppercase;
+}
+
+.paymentListItem {
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  color: #5F093D;
+}
+
+.paymentListItemValue {
+  font-weight: bold;
+  color: #333;
+}

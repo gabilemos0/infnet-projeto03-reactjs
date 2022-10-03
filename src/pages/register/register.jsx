@@ -2,6 +2,7 @@ import './register.css'
 
 import cover from '../../assets/img/cover-register.png'
 import logo from '../../assets/img/logo.png'
+import registerIcon from '../../assets/img/register-icon.png'
 
 import {
   Grid,
@@ -53,7 +54,12 @@ const Register = () => {
             paddingRight: '20px'
           }}
         >
-          <img src={cover} alt="Logo" style={{ width: '100%' }} />
+          <img
+            className="coverRegister"
+            src={cover}
+            alt="Logo"
+            style={{ width: '100%' }}
+          />
         </Stack>
       </Grid>
       <Grid item xs={12} sm={5}>
@@ -67,7 +73,7 @@ const Register = () => {
             paddingRight: '20px'
           }}
         >
-          <img className="logoPrincipal" src={logo} alt="Logo" />
+          <img className="registerIcon" src={registerIcon} alt="Logo" />
           <h2 className="RegisterTitle">Crie sua conta</h2>
           <Grid container>
             <Grid item xs={12}>
@@ -76,7 +82,7 @@ const Register = () => {
                 label="Usuário"
                 type="text"
                 variant="outlined"
-                color="secondary"
+                color="primary"
               />
             </Grid>
             <Grid item xs={12}>
@@ -86,14 +92,14 @@ const Register = () => {
                 label="E-mail"
                 type="email"
                 variant="outlined"
-                color="secondary"
+                color="primary"
               />
             </Grid>
             <Grid item xs={12}>
               <FormControl sx={{ width: '100%' }}>
-                <InputLabel color="secondary">Senha</InputLabel>
+                <InputLabel color="primary">Senha</InputLabel>
                 <OutlinedInput
-                  color="secondary"
+                  color="primary"
                   fullWidth
                   label="Senha"
                   type={visibilityToggle ? 'text' : 'password'}
@@ -118,7 +124,7 @@ const Register = () => {
                 label="Repetir Senha"
                 type={visibilityToggle ? 'text' : 'password'}
                 variant="outlined"
-                color="secondary"
+                color="primary"
               />
             </Grid>
             <Grid item xs={12}>
@@ -126,7 +132,7 @@ const Register = () => {
                 <Button
                   fullWidth
                   variant="contained"
-                  color="secondary"
+                  color="primary"
                   endIcon={<LoginIcon />}
                 >
                   Registrar
@@ -140,7 +146,7 @@ const Register = () => {
                 width: '100%',
                 marginTop: '5px',
                 marginBottom: '10px',
-                color: '#121F4E'
+                color: '#5F093D'
               }}
               to="/login"
             >

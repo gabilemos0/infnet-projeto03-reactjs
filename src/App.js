@@ -29,7 +29,7 @@ function App() {
     location.pathname !== '/login' && location.pathname !== '/register'
   return (
     <>
-      <AppBar position="static" color="secondary">
+      <AppBar position="static" color="primary">
         <Toolbar style={{ justifyContent: 'space-between' }}>
           <IconButton>
             <Link to="/catalog">

@@ -15,7 +15,7 @@ const Catalog = () => {
             xs={12}
             sm={4}
             md={4}
-            lg={3}
+            lg={2}
             sx={{
               display: 'flex',
               justifyContent: 'space-between',
@@ -51,7 +51,7 @@ const Catalog = () => {
                 component="small"
                 className="productPrice"
                 style={{
-                  color: products[id].promoPrice ? '#FA63B5' : '#121F4E',
+                  color: products[id].promoPrice ? '#D67BA8' : '#5F093D',
                   textDecoration: products[id].promoPrice
                     ? 'line-through'
                     : 'none'
@@ -78,7 +78,7 @@ const Catalog = () => {
               )}
             </Stack>
             <Link to={'../product/' + id}>
-              <Button fullWidth variant="contained" color="secondary">
+              <Button fullWidth variant="contained" color="primary">
                 Ver produto
               </Button>
             </Link>

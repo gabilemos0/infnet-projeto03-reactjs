@@ -43,7 +43,13 @@ const Product = () => {
       spacing={2}
       style={{ maxWidth: '1280px', margin: '0 auto', width: '100%' }}
     >
-      <Grid item xs={12} sm={5} className="imageSide">
+      <Grid
+        item
+        xs={12}
+        sm={5}
+        className="imageSide"
+        style={{ padding: '15px' }}
+      >
         <Stack className="imageSide_main">
           <img src={currentImage} />
         </Stack>
@@ -72,7 +78,7 @@ const Product = () => {
             component="p"
             className="productInfosPrice"
             style={{
-              color: product.promoPrice ? '#FA63B5' : '#121F4E',
+              color: product.promoPrice ? '#D67BA8' : '#5F093D',
               textDecoration: product.promoPrice ? 'line-through' : 'none'
             }}
           >
@@ -112,25 +118,25 @@ const Product = () => {
         >
           <div className="productInfosQuantity">
             <IconButton onClick={() => changeQuantityButton(-1)}>
-              <RemoveIcon />
+              <RemoveIcon color="secondary" />
             </IconButton>
             <TextField
               size="small"
               className="productInfosQuantityInput"
               type="number"
-              color="secondary"
+              color="primary"
               value={quantity}
               onchange={event => {
                 setQuantity(event.target.value)
               }}
             ></TextField>
             <IconButton onClick={() => changeQuantityButton(+1)}>
-              <AddIcon />
+              <AddIcon color="secondary" />
             </IconButton>
           </div>
           <Button
             variant="contained"
-            color="secondary"
+            color="primary"
             endIcon={<ShoppingCart />}
             className="productInfosBuy"
           >

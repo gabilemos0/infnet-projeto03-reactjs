@@ -1,7 +1,7 @@
 const { Navigate } = require('react-router-dom')
 
 const userIsLoggedIn = () => {
-  if (true) {
+  if (false) {
     window.location.href = '/login'
   }
 }

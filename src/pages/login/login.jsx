@@ -1,7 +1,6 @@
 import './login.css'
 
-import cover from '../../assets/img/cover-login.png'
-import logo from '../../assets/img/logo.png'
+import imgLogin from '../../assets/img/imgLogin.png'
 
 import {
   Grid,
@@ -32,104 +31,80 @@ const Login = () => {
   }
 
   return (
-    <Grid container spacing={2} style={{ height: '100vh' }}>
-      <Grid
-        className="leftSide"
-        item
-        sx={{
-          boxSizing: 'border-box'
+    <Grid container sx={{ justifyContent: 'center', marginTop: '50px' }}>
+      <Stack
+        spacing={2}
+        style={{
+          height: '100%',
+          justifyContent: 'center',
+          alignItems: 'center',
+          paddingLeft: '50px',
+          paddingRight: '50px'
         }}
-        xs={12}
-        sm={7}
       >
-        <Stack
-          spacing={2}
-          style={{
-            height: '100%',
-            justifyContent: 'center',
-            alignItems: 'center',
-            paddingLeft: '20px',
-            paddingRight: '20px'
-          }}
-        >
-          <img src={cover} alt="Logo" style={{ width: '100%' }} />
-        </Stack>
-      </Grid>
-      <Grid item xs={12} sm={5}>
-        <Stack
-          spacing={2}
-          style={{
-            height: '100%',
-            justifyContent: 'center',
-            alignItems: 'center',
-            paddingLeft: '20px',
-            paddingRight: '20px'
-          }}
-        >
-          <img className="logoPrincipal" src={logo} alt="Logo" />
-          <h2 className="loginTitle">Entre com seu usuário</h2>
-          <Grid container>
-            <Grid item xs={12}>
-              <TextField
+        <img src={imgLogin} alt="imgLogin" style={{ width: '30%' }} />
+        <h2 className="loginTitle">Entre com seu usuário</h2>
+        <Grid container>
+          <Grid item xs={12}>
+            <TextField
+              fullWidth
+              id="outlined-basic"
+              label="E-mail"
+              type="email"
+              variant="outlined"
+              margin="normal"
+              color="primary"
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <FormControl sx={{ width: '100%', marginBottom: '10px' }}>
+              <InputLabel color="primary">Senha</InputLabel>
+              <OutlinedInput
+                color="primary"
                 fullWidth
-                id="outlined-basic"
-                label="E-mail"
-                type="email"
+                label="Senha"
+                type={visibilityToggle ? 'text' : 'password'}
+                endAdornment={
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="Clique para exibir"
+                      onClick={toggleVisibility}
+                    >
+                      {visibilityToggle ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                }
                 variant="outlined"
-                margin="normal"
-                color="secondary"
               />
-            </Grid>
-            <Grid item xs={12}>
-              <FormControl sx={{ width: '100%', marginBottom: '10px' }}>
-                <InputLabel color="secondary">Senha</InputLabel>
-                <OutlinedInput
-                  color="secondary"
-                  fullWidth
-                  label="Senha"
-                  type={visibilityToggle ? 'text' : 'password'}
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="Clique para exibir"
-                        onClick={toggleVisibility}
-                      >
-                        {visibilityToggle ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                  variant="outlined"
-                />
-              </FormControl>
-            </Grid>
-            <Grid item xs={12}>
-              <Link to="/catalog">
-                <Button
-                  fullWidth
-                  variant="contained"
-                  color="secondary"
-                  endIcon={<LoginIcon />}
-                >
-                  Entrar
-                </Button>
-              </Link>
-            </Grid>
-            <Link
-              style={{
-                textAlign: 'center',
-                display: 'block',
-                width: '100%',
-                marginTop: '5px',
-                marginBottom: '10px',
-                color: '#121F4E'
-              }}
-              to="/register"
-            >
-              Criar conta
+            </FormControl>
+          </Grid>
+          <Grid item xs={12}>
+            <Link to="/catalog">
+              <Button
+                fullWidth
+                variant="contained"
+                color="primary"
+                endIcon={<LoginIcon />}
+              >
+                Entrar
+              </Button>
             </Link>
           </Grid>
-        </Stack>
-      </Grid>
+          <Link
+            style={{
+              textAlign: 'center',
+              display: 'block',
+              width: '100%',
+              marginTop: '5px',
+              marginBottom: '10px',
+              color: '#5F093D'
+            }}
+            to="/register"
+          >
+            Criar conta
+          </Link>
+        </Grid>
+      </Stack>
     </Grid>
   )
 }

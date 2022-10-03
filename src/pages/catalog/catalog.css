@@ -2,7 +2,7 @@
   text-align: center;
   font-family: 'Nunito', sans-serif;
   font-weight: bold;
-  color: #121F4E;
+  color: #5F093D;
 }
 
 .productDescription {
@@ -19,17 +19,7 @@
   margin-left: 5px;
   font-size: 15px;
   font-weight: bold;
-  color: #121F4E;
-}
-
-.categoryLabel {
-  background-color: #fa63b670;
-  padding: 5px;
-  color: #fff;
-  box-sizing: border-box;
-  border-radius: 10px;
-  margin-top: 5px;
-  display: inline-block;
+  color: #5F093D;
 }
 
 .promoTag {
@@ -37,7 +27,7 @@
   color: #fff;
   font-weight: bold;
   font-size: 12px;
-  background-color: #fa63b690;
+  background-color: #D67BA890;
   box-sizing: border-box;
   padding: 10px;
   border-radius: 0 0 16px 0;

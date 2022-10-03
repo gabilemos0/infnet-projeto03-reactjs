@@ -9,27 +9,31 @@ button {
 }
 
 a {
-  color: #fff;
+  color: light;
   text-decoration: none;
   font-family: 'Nunito', sans-serif;
 }
 
 @media screen and (max-width: 599px) {
-  .logoPrincipal {
+  .coverRegister {
     display: none;
+  }
+
+  .registerIcon {
+    width: 30%;
   }
 }
 
 @media screen and (min-width: 600px) {
-  .logoPrincipal {
-    width: 20%;
+  .registerIcon {
+    width: 30%;
   }
 }
 
 
 @media screen and (min-width: 1000px) {
-  .logoPrincipal {
-    width: 15%;
+  .registerIcon {
+    width: 30%;
   }
 }
 
