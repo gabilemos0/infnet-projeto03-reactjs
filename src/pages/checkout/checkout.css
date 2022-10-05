@@ -1,0 +1,32 @@
+.checkoutTextField {
+  width: 100%;
+}
+
+.checkoutTitle {
+  color: #5F093D;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.checkoutList {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.checkoutListItem {
+  padding: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.checkoutListItemValues {
+  padding: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  color: #5F093D;
+  text-transform: uppercase;
+}

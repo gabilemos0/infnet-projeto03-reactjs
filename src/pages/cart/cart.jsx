@@ -1,5 +1,6 @@
 import { productsCart } from './products-cart'
 import './cart.css'
+import { calculatePromo, calculateTotal } from '../utils/calculate'
 
 import {
   Grid,
@@ -18,23 +19,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Cart = () => {
-  const values = [
-    [153.72, 0],
-    [140.28, 100.2],
-    [128.52, 91.8],
-    [103.32, 73.8]
-  ]
+  const values = Object.keys(productsCart).map(id => {
+    let qtd = productsCart[id].quantity
+    return [productsCart[id].price * qtd, productsCart[id].promoPrice * qtd]
+  })
 
-  const totalValue = values.reduce((pValue, cValue) => {
-    return cValue[0] + pValue
-  }, 0)
-
-  const promoValue = values.reduce((pValue, cValue) => {
-    if (cValue[1]) {
-      return cValue[1] + pValue
-    }
-    return 0 + pValue
-  }, 0)
+  const totalValue = calculateTotal(values)
+  const promoValue = calculatePromo(values)
 
   return (
     <Grid
@@ -42,6 +33,11 @@ const Cart = () => {
       spacing={2}
       sx={{ boxSizing: 'borderBox', padding: '10px', maxWidth: '100%' }}
     >
+      <Grid item xs={12}>
+        <Typography variant="h5" component="h5" sx={{ color: '#5F093D' }}>
+          Carrinho de Compras
+        </Typography>
+      </Grid>
       <Grid
         item
         xs={12}
@@ -204,7 +200,7 @@ const Cart = () => {
               color="primary"
               className="productInfosBuy"
             >
-              Pagar
+              Finalizar Pedido
             </Button>
           </Link>
         </div>
