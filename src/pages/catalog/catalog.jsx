@@ -1,7 +1,7 @@
 import { products } from './products'
 import './catalog.css'
 
-import { Grid, Typography, Button, Badge, Stack } from '@mui/material'
+import { Grid, Typography, Button, Stack } from '@mui/material'
 
 import { Link } from 'react-router-dom'
 
@@ -31,7 +31,11 @@ const Catalog = () => {
               {' '}
               OFERTA{' '}
             </span>
-            <img style={{ width: '100%' }} src={products[id].images[0]} />
+            <img
+              style={{ width: '100%' }}
+              src={products[id].images[0]}
+              alt={products[id].name}
+            />
             <Typography variant="h5" component="h5" className="productTitle">
               {products[id].name}
             </Typography>

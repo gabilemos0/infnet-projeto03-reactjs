@@ -1,3 +1,6 @@
+.cartProductsGrid {
+  margin-left: 0px;
+}
 .productImage {
   height: 135px;
   width: 100px;
@@ -6,9 +9,21 @@
 
 .productTitleCart {
   margin: 0 20px;
-  color: #5F093D;
+  color: #5f093d;
   text-align: start;
   font-size: 18px;
+}
+
+.productInfosPriceCart {
+  font-weight: bold;
+  color: #5f093d;
+  margin-right: 10px;
+}
+
+.productInfosPromoCart {
+  margin-left: 10px;
+  font-weight: bold;
+  color: #5f093d;
 }
 
 .productDescriptionCart {
@@ -35,10 +50,42 @@
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
-  color: #5F093D;
+  color: #5f093d;
 }
 
 .paymentListItemValue {
   font-weight: bold;
   color: #333;
+}
+
+@media screen and (max-width: 599px) {
+  .cartPrice {
+    flex-direction: column;
+    margin: auto 2px;
+  }
+
+  .productInfosPromoCart {
+    margin: 0;
+  }
+
+  .productInfosPriceCart {
+    margin: 0;
+  }
+
+  .productField {
+    flex-direction: column;
+  }
+
+  .descriptionField {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .productTitleCart {
+    text-align: center;
+  }
+
+  .quantityField {
+    justify-content: center;
+  }
 }

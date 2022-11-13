@@ -1,7 +1,6 @@
 import './register.css'
 
 import cover from '../../assets/img/cover-register.png'
-import logo from '../../assets/img/logo.png'
 import registerIcon from '../../assets/img/register-icon.png'
 
 import {
@@ -33,7 +32,12 @@ const Register = () => {
   }
 
   return (
-    <Grid container spacing={2} style={{ height: '100vh' }}>
+    <Grid
+      container
+      spacing={2}
+      style={{ height: '100vh' }}
+      className="registerPage"
+    >
       <Grid
         className="leftSide"
         item
@@ -42,7 +46,7 @@ const Register = () => {
           boxSizing: 'border-box'
         }}
         xs={12}
-        sm={7}
+        sm={6}
       >
         <Stack
           spacing={2}
@@ -54,23 +58,17 @@ const Register = () => {
             paddingRight: '20px'
           }}
         >
-          <img
-            className="coverRegister"
-            src={cover}
-            alt="Logo"
-            style={{ width: '100%' }}
-          />
+          <img className="coverRegister" src={cover} alt="Logo" />
         </Stack>
       </Grid>
-      <Grid item xs={12} sm={5}>
+      <Grid item xs={12} sm={6}>
         <Stack
           spacing={2}
           style={{
             height: '100%',
             justifyContent: 'center',
             alignItems: 'center',
-            paddingLeft: '20px',
-            paddingRight: '20px'
+            padding: '20px 90px'
           }}
         >
           <img className="registerIcon" src={registerIcon} alt="Logo" />

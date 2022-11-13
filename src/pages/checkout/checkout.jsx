@@ -217,19 +217,18 @@ const Checkout = () => {
           <Typography className="checkoutTitle">Detalhes da Compra</Typography>
           <ul className="checkoutList">
             {Object.keys(productsCart).map((id, idx) => {
+              const product = productsCart[id]
+              const price = product.promoprice
+                ? product.promoprice
+                : product.price
               return (
                 <li key={idx} className="checkoutListItem">
-                  <span>{productsCart[id].name}</span>
+                  <span>{`${product.quantity}x ${product.name}`}</span>
                   <span>
-                    {productsCart[id].promoprice
-                      ? productsCart[id].promoprice.toLocaleString('pt-br', {
-                          style: 'currency',
-                          currency: 'BRL'
-                        })
-                      : productsCart[id].price.toLocaleString('pt-br', {
-                          style: 'currency',
-                          currency: 'BRL'
-                        })}
+                    {(product.quantity * price).toLocaleString('pt-br', {
+                      style: 'currency',
+                      currency: 'BRL'
+                    })}
                   </span>
                 </li>
               )
@@ -249,7 +248,7 @@ const Checkout = () => {
             <li className="checkoutListItemValues">
               <span>Descontos</span>
               <span>
-                {promoValue.toLocaleString('pt-br', {
+                {(totalValue - promoValue).toLocaleString('pt-br', {
                   style: 'currency',
                   currency: 'BRL'
                 })}
@@ -258,7 +257,7 @@ const Checkout = () => {
             <li className="checkoutListItemValues">
               <span>Total a pagar</span>
               <span>
-                {(totalValue - promoValue).toLocaleString('pt-br', {
+                {promoValue.toLocaleString('pt-br', {
                   style: 'currency',
                   currency: 'BRL'
                 })}

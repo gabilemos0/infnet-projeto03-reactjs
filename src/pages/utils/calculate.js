@@ -1,5 +1,3 @@
-const { modalUnstyledClasses } = require('@mui/material')
-
 function calculateTotal(values) {
   const totalValue = values.reduce((pValue, cValue) => {
     return cValue[0] + pValue

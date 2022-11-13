@@ -15,10 +15,11 @@ import {
 } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
 
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Cart = () => {
+  const [change, setChange] = useState(0)
   const values = Object.keys(productsCart).map(id => {
     let qtd = productsCart[id].quantity
     return [productsCart[id].price * qtd, productsCart[id].promoPrice * qtd]
@@ -29,6 +30,7 @@ const Cart = () => {
 
   return (
     <Grid
+      className="cartProductsGrid"
       container
       spacing={2}
       sx={{ boxSizing: 'borderBox', padding: '10px', maxWidth: '100%' }}
@@ -57,20 +59,7 @@ const Cart = () => {
           <List sx={{ width: '100%', boxSizing: 'borderBox' }}>
             {Object.keys(productsCart).map(id => {
               return (
-                <ListItem
-                  secondaryAction={
-                    <IconButton
-                      edge="end"
-                      aria-label="delete"
-                      sx={{
-                        alignItems: 'center',
-                        justifyContent: 'space-evenly'
-                      }}
-                    >
-                      <DeleteIcon />
-                    </IconButton>
-                  }
-                >
+                <ListItem className="productField" style={{ maxWidth: '100%' }}>
                   <ListItemAvatar>
                     <img
                       className="productImage"
@@ -78,7 +67,11 @@ const Cart = () => {
                       alt=""
                     />
                   </ListItemAvatar>
-                  <Stack direction="row" style={{ width: '100%' }}>
+                  <Stack
+                    className="descriptionField"
+                    direction="row"
+                    style={{ width: '100%' }}
+                  >
                     <Stack direction="column" sx={{ flexGrow: 5 }}>
                       <Typography
                         className="productTitleCart"
@@ -98,6 +91,7 @@ const Cart = () => {
                       </Typography>
                     </Stack>
                     <Stack
+                      className="cartPrice"
                       direction="row"
                       sx={{
                         margin: '10px 20px',
@@ -106,7 +100,8 @@ const Cart = () => {
                       }}
                     >
                       <Typography
-                        sx={{ display: 'inline', marginRight: '10px' }}
+                        className="productInfosPriceCart"
+                        sx={{ display: 'inline' }}
                         component="p"
                         variant="p"
                         style={{
@@ -128,7 +123,7 @@ const Cart = () => {
                           sx={{ display: 'inline', color: '#5F093D' }}
                           variant="p"
                           component="p"
-                          className="productInfosPromo"
+                          className="productInfosPromoCart"
                         >
                           {productsCart[id].promoPrice.toLocaleString('pt-br', {
                             style: 'currency',
@@ -136,16 +131,43 @@ const Cart = () => {
                           })}
                         </Typography>
                       ) : (
-                        <span style={{ visiblity: 'hidden' }}>R$ 153,72</span>
+                        <></>
                       )}
                     </Stack>
-                    <Stack direction="row" sx={{ alignItems: 'center' }}>
+                    <Stack
+                      className="quantityField"
+                      direction="row"
+                      sx={{ alignItems: 'center' }}
+                    >
                       <TextField
                         size="small"
                         className="productInfosQuantityInputCart"
                         type="number"
                         color="primary"
+                        value={productsCart[id].quantity}
+                        onChange={event => {
+                          const quantity = Number(event.target.value)
+                          if (quantity < 1) {
+                            return
+                          }
+                          productsCart[id].quantity = quantity
+                          setChange(change + 1)
+                        }}
                       ></TextField>
+                      <IconButton
+                        edge="end"
+                        aria-label="delete"
+                        sx={{
+                          alignItems: 'center',
+                          justifyContent: 'space-evenly'
+                        }}
+                        onClick={() => {
+                          delete productsCart[id]
+                          setChange(change + 1)
+                        }}
+                      >
+                        <DeleteIcon />
+                      </IconButton>
                     </Stack>
                   </Stack>
                 </ListItem>
@@ -177,7 +199,7 @@ const Cart = () => {
             <li className="paymentListItem">
               <span>Desconto:</span>
               <span className="paymentListItemValue">
-                {promoValue.toLocaleString('pt-BR', {
+                {(totalValue - promoValue).toLocaleString('pt-BR', {
                   style: 'currency',
                   currency: 'BRL'
                 })}
@@ -186,7 +208,7 @@ const Cart = () => {
             <li className="paymentListItem">
               <span>Total a pagar:</span>
               <span className="paymentListItemValue">
-                {(totalValue - promoValue).toLocaleString('pt-BR', {
+                {promoValue.toLocaleString('pt-BR', {
                   style: 'currency',
                   currency: 'BRL'
                 })}

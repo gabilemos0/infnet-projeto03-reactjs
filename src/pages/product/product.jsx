@@ -1,25 +1,20 @@
 import { products } from '../catalog/products'
 import './product.css'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-import {
-  Grid,
-  Typography,
-  Link,
-  Button,
-  TextField,
-  IconButton
-} from '@mui/material'
+import { Grid, Typography, Button, TextField, IconButton } from '@mui/material'
 import { Stack } from '@mui/system'
 import ShoppingCart from '@mui/icons-material/ShoppingCart'
 import AddIcon from '@mui/icons-material/Add'
 import RemoveIcon from '@mui/icons-material/Remove'
+import { productsCart } from '../cart/products-cart'
 
 const Product = () => {
   const params = useParams()
-  const product = products[params.id]
+  const productId = params.id
+  const product = products[productId]
   const [currentImage, setCurrentImage] = useState(product.images[0])
   const [quantity, setQuantity] = useState(1)
 
@@ -51,7 +46,7 @@ const Product = () => {
         style={{ padding: '15px' }}
       >
         <Stack className="imageSide_main">
-          <img src={currentImage} />
+          <img src={currentImage} alt="" />
         </Stack>
         <Stack direction="row" className="imageSide_secondaries">
           {product.images.map((image, idx) => (
@@ -139,6 +134,16 @@ const Product = () => {
             color="primary"
             endIcon={<ShoppingCart />}
             className="productInfosBuy"
+            onClick={() => {
+              if (productsCart[productId]) {
+                productsCart[productId].quantity += quantity
+              } else {
+                productsCart[productId] = {
+                  ...product,
+                  quantity: quantity
+                }
+              }
+            }}
           >
             Adicionar ao Carrinho
           </Button>
